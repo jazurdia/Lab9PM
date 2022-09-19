@@ -18,7 +18,7 @@ class PlaceAdapter (private val dataset: MutableList<Character>, private val lis
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_recycler_place_holder, parent, false) // revisar item_recycler_place
+            .inflate(R.layout.item_recycler_place, parent, false) // revisar item_recycler_place
         return ViewHolder(view, listener)
 
     }
@@ -36,7 +36,7 @@ class PlaceAdapter (private val dataset: MutableList<Character>, private val lis
         private val name: TextView = view.findViewById(R.id.name_of_character)
         private val status: TextView = view.findViewById(R.id.status_of_character)
         private val species: TextView = view.findViewById(R.id.species_of_character)
-        private val lay_char: ConstraintLayout = view.findViewById(R.id.item_recycler_place_holder) // item_recycler_place
+        private val lay_char: ConstraintLayout = view.findViewById(R.id.item_recycler_place) // item_recycler_place
 
         fun set_data(character: Character) {
             name.text = character.name
