@@ -30,15 +30,16 @@ class PlaceAdapter (private val dataset: MutableList<Character>, private val lis
 
 
 
-    class ViewHolder(private val view: View, private val listener: RecyclerViewCharacter) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, private val listener: RecyclerViewCharacter) : RecyclerView.ViewHolder(view) {
 
-        private val image: ImageView = view.findViewById(R.id.image_of_character)
-        private val name: TextView = view.findViewById(R.id.name_of_character)
-        private val status: TextView = view.findViewById(R.id.status_of_character)
-        private val species: TextView = view.findViewById(R.id.species_of_character)
+        private val image: ImageView = view.findViewById(R.id.item_image_character)
+        private val name: TextView = view.findViewById(R.id.item_name)
+        private val status: TextView = view.findViewById(R.id.item_status)
+        private val species: TextView = view.findViewById(R.id.item_species)
         private val lay_char: ConstraintLayout = view.findViewById(R.id.item_recycler_place) // item_recycler_place
 
         fun set_data(character: Character) {
+
             name.text = character.name
             status.text = character.status
             species.text = character.species
@@ -50,7 +51,7 @@ class PlaceAdapter (private val dataset: MutableList<Character>, private val lis
         }
 
         fun get_image(url: String) { // pedir ayuda.
-            image.load(image) {
+            image.load(url) {
                 transformations(CircleCropTransformation())
                 error(R.drawable.ic_baseline_error_outline_24)
                 diskCachePolicy(CachePolicy.ENABLED)

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
@@ -39,12 +40,11 @@ class CharactersFragmentFullView : Fragment(R.layout.fragment_character_fullview
 
         @SuppressLint("SetTextI18n")
     private fun getCharactesrDetails() {
-        val character = args.character
-        getImage(args.character.image)
-        name.text = "Nombre: " + character.name
-        status.text = "Estado: " + character.status
-        species.text = "Especie: " + character.species
-        gender.text = "Genero: " + character.gender
+        getImage(args.image)
+        name.text = "Nombre: " + args.name
+        status.text = "Estado: " + args.status
+        species.text = "Especie: " + args.specie
+        gender.text = "Genero: " + args.gender
     }
 
     private fun getImage(imageUrl: String) {
@@ -55,4 +55,7 @@ class CharactersFragmentFullView : Fragment(R.layout.fragment_character_fullview
             memoryCachePolicy(CachePolicy.ENABLED)
         }
     }
+
+
+
 }
